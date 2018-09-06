@@ -219,7 +219,7 @@ def addPromotion
 			product_index = choose - 1
 			new_promo_pruduct = $products[product_index]
 
-			puts 'Ingrese el tipo de la promoción 1 o 2'
+			puts 'Ingrese el tipo de la promoción 1(rebaja de precio) o 2 (Pague X lleve Y)'
 			type = gets.chomp.to_i
 			if type != 1 && type != 2
 				puts 'Número incorrecto, se pondra la promoción por defecto (1)'
@@ -250,7 +250,7 @@ def addPromotion
 end
 
 def deletePromotion
-	showPromotionOptions 'eliminar'
+	showPromoOptions 'eliminar'
 	choose = gets.chomp
 	if choose != 's'
 		choose = choose.to_i
@@ -258,7 +258,7 @@ def deletePromotion
 			promotion_index = choose - 1
 			d_pruduct_promo = $promotions[promotion_index].product
 			$promotions[promotion_index].product.has_promo = false
-			$promotion.delete_at(promotion_index)
+			$promotions.delete_at(promotion_index)
 			puts "Se ha borrado la promocion del producto #{d_pruduct_promo.name} exitosamente"
 			pause
 		else
