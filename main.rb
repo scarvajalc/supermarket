@@ -56,7 +56,7 @@ def addToCart(product, qty)
 		qty_values = calcPromoPriceAndQtys(promo, product, qty)
 		if qty_values['product_qty'] != 0
 			$sCart.addToCart(product.name, product.price, qty_values['product_qty'], product.unit)
-		end		
+		end
 		if qty_values['promo_qty'] != 0
 			$sCart.addToCart(product.name, promo.new_price, qty_values['promo_qty'], product.unit)
 		end
@@ -155,7 +155,7 @@ def mainMenu
 			cls
 			buy
 		when '2'
-			cls	
+			cls
 			addProduct
 		when '3'
 			cls
@@ -219,7 +219,7 @@ def addPromotion
 			product_index = choose - 1
 			new_promo_pruduct = $products[product_index]
 
-			puts 'Ingrese el tipo de la promoción 1(rebaja de precio) o 2 (Pague X lleve Y)'
+			puts 'Ingrese el tipo de la promoción 1 o 2'
 			type = gets.chomp.to_i
 			if type != 1 && type != 2
 				puts 'Número incorrecto, se pondra la promoción por defecto (1)'
@@ -250,7 +250,7 @@ def addPromotion
 end
 
 def deletePromotion
-	showPromoOptions 'eliminar'
+	showPromotionOptions 'eliminar'
 	choose = gets.chomp
 	if choose != 's'
 		choose = choose.to_i
@@ -258,7 +258,7 @@ def deletePromotion
 			promotion_index = choose - 1
 			d_pruduct_promo = $promotions[promotion_index].product
 			$promotions[promotion_index].product.has_promo = false
-			$promotions.delete_at(promotion_index)
+			$promotion.delete_at(promotion_index)
 			puts "Se ha borrado la promocion del producto #{d_pruduct_promo.name} exitosamente"
 			pause
 		else
@@ -268,8 +268,7 @@ def deletePromotion
 	end
 end
 
-
-
+#mainMenu
 def showMainMenu
 	puts "\n\n"
 	puts "Seleccione la opción a realizar"
