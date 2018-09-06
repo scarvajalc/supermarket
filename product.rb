@@ -9,7 +9,7 @@ class Product
 	end
 
 	def productInfo
-		@name + " " + @price.to_s + " " + @unit
+		"Nombre: " + @name + ", Precio: " + @price.to_s + ", Unidades:" + @unit + (@has_promo ? ', tiene promoción' : '')
 	end
 
 	def productHasPromo?

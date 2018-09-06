@@ -9,6 +9,6 @@ class Promotion
 		@product.has_promo = true;
 	end
 	def promotionInfo
-		"#{@product.name} #{@new_price} #{@prom_qty} #{@pay_qty unless @pay_qty.nil?}  "
+		"Producto: #{@product.name}, Nuevo Precio: #{@new_price}, Cantidad: #{@prom_qty}, Cantidad a pagar: #{@pay_qty unless @pay_qty.nil?}, tipo: #{type}  "
 	end
 end
