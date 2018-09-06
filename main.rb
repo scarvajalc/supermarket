@@ -8,11 +8,10 @@ require './shoppingCart'
 
 $products = []
 $promotions = []
-
+#instances
 $products << Product.new('Naranja', 350, 'unidad')
 $products << Product.new('Guisantes', 1000, 'unidad')
 $products << Product.new('Pechuga',14000, 'kilo')
-
 
 $promotions << Promotion.new({'product' => $products[0], 'new_price' => 266, 'prom_qty' => 3, 'type' => 1})
 $promotions << Promotion.new({'product' => $products[1], 'new_price' => 0, 'prom_qty' => 3, 'pay_qty' => 2 ,'type' => 2})
@@ -74,11 +73,11 @@ def calcPromoPriceAndQtys(promo, product, qty)
 	promo_product_qty = 0
 	regular_product_qty = 0
 
-	if promo.type == 1
+	if promo.type == 1 #Example Oranges option
 		promo_product_qty = (qty / promo.prom_qty).to_i * promo.prom_qty
 		regular_product_qty = qty - promo_product_qty
 	end
-	if promo.type == 2
+	if promo.type == 2 #Example peas option
 		free_products = promo.prom_qty - promo.pay_qty
 		promo_product_qty = (qty / promo.prom_qty).to_i * free_products
 		regular_product_qty = qty - promo_product_qty
@@ -102,7 +101,7 @@ def showProductOptions action
 	puts "Seleccione el producto a #{action}"
 	puts "Ingrese el caracter correspondiente a alguna de las opciones"
 	showAllProducts
-	if action == 'comprar'
+	if action == 'Comprar'
 		puts "p. Preview de la compra"
 		puts "f. Finalizar compra"
 	end
@@ -273,11 +272,11 @@ def showMainMenu
 	puts "\n\n"
 	puts "Seleccione la opción a realizar"
 	puts "Ingrese el caracter correspondiente a alguna de las opciones"
-	puts "1. Realizar venta"
+	puts "1. Realizar Venta"
 	puts "2. Agregar Producto"
 	puts "3. Eliminar Producto"
 	puts "4. Agregar Promoción"
-	puts "5. Elimianar Promoción"
+	puts "5. Eliminar Promoción"
 	puts "6. Mostrar productos y promociones"
 	puts "s. Salir"
 end
@@ -289,6 +288,5 @@ end
 def pause
 	system("PAUSE")
 end
-
-
+#Code Begin
 mainMenu
